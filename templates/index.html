@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flight Fare Prediction</title>
+<style>
+      h1 {text-align: center;
+	  
+	  }
+	  p {text-align: center; font-size: 1.175em;}
+	  div {text-align: center;}
+	  label{text-align: center;}
+	  b {font-size: 1.375em;
+	  text-align: center;
+	  }
+</style>
+</head>
+<body style = "background: #000;">
+<div class="login">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 style="color:green;">Flight Fare Prediction</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<form action="{{ url_for('predict')}}" method="post">
+			        <label for="Airline" style="color:lawnGreen;"><b>&ensp;&ensp;&ensp;&ensp;&ensp;Airline</b></label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					<label for="Date_of_Journey" style="color:lawnGreen;"><b>Date of Journey</b></label>&emsp;&emsp;&emsp;&emsp;&emsp;
+					<label for="Source" style="color:lawnGreen;"><b>Source</b></label>&emsp;&emsp;&emsp;
+					<label for="Destination" style="color:lawnGreen;"><b>Destination</b></label>&emsp;&emsp;&emsp;&emsp;&emsp;
+					<label for="Route" style="color:lawnGreen;"><b>Route</b></label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					<label for="Dep_Time" style="color:lawnGreen;"><b>Departure Time</b></label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					<label for="Duration" style="color:lawnGreen;"><b>Duration</b></label>&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+					<label for="Total_Stops" style="color:lawnGreen;"><b>Total Stops</b></label>&ensp;&ensp;&ensp;&emsp;
+					<label for="Additional_Info" style="color:lawnGreen;"><b>Additional Information</b></label>
+					<br><br><br><br>
+					<select id="Airline" name="Airline">
+  <option value="GoAir">GoAir</option>
+  <option value="Multiple carriers">Multiple carriers</option>
+  <option value="Jet Airways">Jet Airways</option>
+  <option value="SpiceJet">SpiceJet</option>
+  <option value="Air India">Air India</option>
+  <option value="Vistara">Vistara</option>
+  <option value="IndiGo">IndiGo</option>
+  <option value="Air Asia">Air Asia</option>
+  <option value="Trujet">Trujet</option>
+  <option value="Jet Airways Business">Jet Airways Business</option>
+  <option value="Multiple carriers Premium economy">Multiple carriers Premium economy</option>
+  <option value="Vistara Premium economy">Vistara Premium economy</option>
+</select>&emsp;&emsp;&emsp;
+<input type="text" id="Date_of_Journey" name="Date_of_Journey" value = "00/00/0000" required="required" />&emsp;&emsp;&emsp;
+<select id="Source" name="Source">
+  <option value="Delhi">Delhi</option>
+  <option value="Banglore">Banglore</option>
+  <option value="Chennai">Chennai</option>
+  <option value="Mumbai">Mumbai</option>
+  <option value="Kolkata">Kolkata</option>
+</select>&emsp;
+<select id="Destination" name="Destination">
+  <option value="Cochin">Cochin</option>
+  <option value="Delhi">Delhi</option>
+  <option value="Kolkata">Kolkata</option>
+  <option value="Hyderabad">Hyderabad</option>
+  <option value="Banglore">Banglore</option>
+</select>&emsp;
+<select id="Route" name="Route">
+  <option value="DEL → AMD → COK">DEL → AMD → COK</option>
+  <option value="DEL → BOM → COK">DEL → BOM → COK</option>
+  <option value="BLR → BOM → DEL">BLR → BOM → DEL</option>
+  <option value="MAA → CCU">MAA → CCU</option>
+  <option value="DEL → HYD → MAA → COK">DEL → HYD → MAA → COK</option>
+  <option value="BLR → DEL">BLR → DEL</option>
+  <option value="DEL → BLR → COK">DEL → BLR → COK</option>
+  <option value="BOM → HYD">BOM → HYD</option>
+  <option value="CCU → DEL → BLR">CCU → DEL → BLR</option>
+  <option value="DEL → MAA → COK">DEL → MAA → COK</option>
+  <option value="CCU → BOM → BLR">CCU → BOM → BLR</option>
+  <option value="DEL → HYD → COK">DEL → HYD → COK</option>
+  <option value="CCU → BLR">CCU → BLR</option>
+  <option value="BLR → HYD → DEL">BLR → HYD → DEL</option>
+  <option value="BLR → COK → DEL">BLR → COK → DEL</option>
+  <option value="DEL → CCU → BOM → COK">DEL → CCU → BOM → COK</option>
+  <option value="DEL → JDH → BOM → COK">DEL → JDH → BOM → COK</option>
+  <option value="CCU → GAU → BLR">CCU → GAU → BLR</option>
+  <option value="DEL → PNQ → COK">DEL → PNQ → COK</option>
+  <option value="DEL → JAI → BOM → COK">DEL → JAI → BOM → COK</option>
+  <option value="DEL → IDR → BOM → COK">DEL → IDR → BOM → COK</option>
+  <option value="DEL → COK">DEL → COK</option>
+  <option value="DEL → BHO → BOM → COK">DEL → BHO → BOM → COK</option>
+  <option value="DEL → AMD → BOM → COK">DEL → AMD → BOM → COK</option>
+  <option value="DEL → IXU → BOM → COK">DEL → IXU → BOM → COK</option>
+  <option value="CCU → BBI → BOM → BLR">CCU → BBI → BOM → BLR</option>
+  <option value="CCU → IXR → DEL → BLR">CCU → IXR → DEL → BLR</option>
+  <option value="CCU → BBI → BLR">CCU → BBI → BLR</option>
+  <option value="DEL → NAG → BOM → COK">DEL → NAG → BOM → COK</option>
+  <option value="BLR → BBI → DEL">BLR → BBI → DEL</option>
+  <option value="BOM → DEL → HYD">BOM → DEL → HYD</option>
+  <option value="CCU → MAA → BLR">CCU → MAA → BLR</option>
+  <option value="CCU → HYD → BLR">CCU → HYD → BLR</option>
+  <option value="DEL → HYD → BOM → COK">DEL → HYD → BOM → COK</option>
+  <option value="DEL → ATQ → BOM → COK">DEL → ATQ → BOM → COK</option>
+  <option value="DEL → TRV → COK">DEL → TRV → COK</option>
+  <option value="CCU → GAU → DEL → BLR">CCU → GAU → DEL → BLR</option>
+  <option value="DEL → GOI → BOM → COK">DEL → GOI → BOM → COK</option>
+  <option value="CCU → DEL → COK → BLR">CCU → DEL → COK → BLR</option>
+  <option value="CCU → IXB → BLR">CCU → IXB → BLR</option>
+  <option value="BOM → NDC → HYD">BOM → NDC → HYD</option>
+  <option value="CCU → DEL → AMD → BLR">CCU → DEL → AMD → BLR</option>
+  <option value="DEL → LKO → BOM → COK">DEL → LKO → BOM → COK</option>
+  <option value="DEL → RPR → NAG → BOM → COK">DEL → RPR → NAG → BOM → COK</option>
+  <option value="CCU → DEL → VGA → BLR">CCU → DEL → VGA → BLR</option>
+  <option value="DEL → BDQ → BOM → COK">DEL → BDQ → BOM → COK</option>
+  <option value="BLR → BOM → JDH → DEL">BLR → BOM → JDH → DEL</option>
+  <option value="DEL → IXC → BOM → COK">DEL → IXC → BOM → COK</option>
+  <option value="CCU → PNQ → BLR">CCU → PNQ → BLR</option>
+  <option value="BLR → TRV → COK → DEL">BLR → TRV → COK → DEL</option>
+  <option value="BOM → BHO → DEL → HYD">BOM → BHO → DEL → HYD</option>
+  <option value="BOM → BLR → HYD">BOM → BLR → HYD</option>
+  <option value="BLR → HYD → VGA → DEL">BLR → HYD → VGA → DEL</option>
+  <option value="DEL → GWL → IDR → BOM → COK">DEL → GWL → IDR → BOM → COK</option>
+  <option value="BLR → CCU → BBI → DEL">BLR → CCU → BBI → DEL</option>
+  <option value="DEL → UDR → BOM → COK">DEL → UDR → BOM → COK</option>
+  <option value="BLR → BOM → NAG → DEL">BLR → BOM → NAG → DEL</option>
+  <option value="BLR → MAA → DEL">BLR → MAA → DEL</option>
+  <option value="CCU → BOM → COK → BLR">CCU → BOM → COK → BLR</option>
+  <option value="CCU → DEL → COK → TRV → BLR">CCU → DEL → COK → TRV → BLR</option>
+  <option value="CCU → AMD → BLR">CCU → AMD → BLR</option>
+  <option value="DEL → LKO → COK">DEL → LKO → COK</option>
+  <option value="BLR → VGA → DEL">BLR → VGA → DEL</option>
+  <option value="DEL → DED → BOM → COK">DEL → DED → BOM → COK</option>
+  <option value="BLR → NAG → DEL">BLR → NAG → DEL</option>
+  <option value="CCU → BOM → AMD → BLR">CCU → BOM → AMD → BLR</option>
+  <option value="CCU → VNS → DEL → BLR">CCU → VNS → DEL → BLR</option>
+  <option value="BOM → COK → MAA → HYD">BOM → COK → MAA → HYD</option>
+  <option value="CCU → BOM → GOI → BLR">CCU → BOM → GOI → BLR</option>
+  <option value="BLR → GOI → DEL">BLR → GOI → DEL</option>
+  <option value="CCU → IXB → DEL → BLR">CCU → IXB → DEL → BLR</option>
+  <option value="BLR → PNQ → DEL">BLR → PNQ → DEL</option>
+  <option value="BLR → IDR → DEL">BLR → IDR → DEL</option>
+  <option value="DEL → BBI → COK">DEL → BBI → COK</option>
+  <option value="BOM → GOI → PNQ → HYD">BOM → GOI → PNQ → HYD</option>
+  <option value="BLR → BOM → UDR → DEL">BLR → BOM → UDR → DEL</option>
+  <option value="BLR → CCU → DEL">BLR → CCU → DEL</option>
+  <option value="CCU → GAU → IMF → DEL → BLR">CCU → GAU → IMF → DEL → BLR</option>
+  <option value="BLR → AMD → DEL">BLR → AMD → DEL</option>
+  <option value="BLR → CCU → GAU → DEL">BLR → CCU → GAU → DEL</option>
+  <option value="DEL → MAA → BOM → COK">DEL → MAA → BOM → COK</option>
+  <option value="BOM → IDR → DEL → HYD">BOM → IDR → DEL → HYD</option>
+  <option value="BOM → GOI → HYD">BOM → GOI → HYD</option>
+  <option value="BOM → JDH → DEL → HYD">BOM → JDH → DEL → HYD</option>
+  <option value="BOM → JDH → JAI → DEL → HYD">BOM → JDH → JAI → DEL → HYD</option>
+  <option value="CCU → PAT → BLR">CCU → PAT → BLR</option>
+  <option value="BOM → BLR → CCU → BBI → HYD">BOM → BLR → CCU → BBI → HYD</option>
+  <option value="CCU → KNU → BLR">CCU → KNU → BLR</option>
+  <option value="BLR → HBX → BOM → BHO → DEL">BLR → HBX → BOM → BHO → DEL</option>
+  <option value="BOM → VNS → DEL → HYD">BOM → VNS → DEL → HYD</option>
+  <option value="BOM → AMD → ISK → HYD">BOM → AMD → ISK → HYD</option>
+  <option value="CCU → JAI → BOM → BLR">CCU → JAI → BOM → BLR</option>
+  <option value="BLR → BOM → IDR → GWL → DEL">BLR → BOM → IDR → GWL → DEL</option>
+  <option value="BLR → VGA → VTZ → DEL">BLR → VGA → VTZ → DEL</option>
+  <option value="CCU → BOM → PNQ → BLR">CCU → BOM → PNQ → BLR</option>
+  <option value="CCU → JAI → DEL → BLR">CCU → JAI → DEL → BLR</option>
+  <option value="BLR → GAU → DEL">BLR → GAU → DEL</option>
+  <option value="BLR → BOM → BHO → DEL">BLR → BOM → BHO → DEL</option>
+  <option value="CCU → IXA → BLR">CCU → IXA → BLR</option>
+  <option value="CCU → IXR → BBI → BLR">CCU → IXR → BBI → BLR</option>
+  <option value="BLR → BOM → IXC → DEL">BLR → BOM → IXC → DEL</option>
+  <option value="CCU → BBI → IXR → DEL → BLR">CCU → BBI → IXR → DEL → BLR</option>
+  <option value="BOM → BDQ → DEL → HYD">BOM → BDQ → DEL → HYD</option>
+  <option value="BLR → BOM → IDR → DEL">BLR → BOM → IDR → DEL</option>
+  <option value="BLR → STV → DEL">BLR → STV → DEL</option>
+  <option value="CCU → NAG → BLR">CCU → NAG → BLR</option>
+  <option value="CCU → BBI → HYD → BLR">CCU → BBI → HYD → BLR</option>
+  <option value="BLR → LKO → DEL">BLR → LKO → DEL</option>
+  <option value="BLR → BDQ → DEL">BLR → BDQ → DEL</option>
+  <option value="BOM → MAA → HYD">BOM → MAA → HYD</option>
+  <option value="BLR → HBX → BOM → NAG → DEL">BLR → HBX → BOM → NAG → DEL</option>
+  <option value="CCU → BOM → HBX → BLR">CCU → BOM → HBX → BLR</option>
+  <option value="BLR → BOM → AMD → DEL">BLR → BOM → AMD → DEL</option>
+  <option value="CCU → BOM → TRV → BLR">CCU → BOM → TRV → BLR</option>
+  <option value="BOM → DED → DEL → HYD">BOM → DED → DEL → HYD</option>
+  <option value="CCU → IXZ → MAA → BLR">CCU → IXZ → MAA → BLR</option>
+  <option value="BLR → CCU → BBI → HYD → VGA → DEL">BLR → CCU → BBI → HYD → VGA → DEL</option>
+  <option value="BOM → BBI → HYD">BOM → BBI → HYD</option>
+  <option value="CCU → VTZ → BLR">CCU → VTZ → BLR</option>
+  <option value="BLR → VGA → HYD → DEL">BLR → VGA → HYD → DEL</option>
+  <option value="BLR → CCU → BBI → HYD → DEL">BLR → CCU → BBI → HYD → DEL</option>
+  <option value="BOM → RPR → VTZ → HYD">BOM → RPR → VTZ → HYD</option>
+  <option value="BOM → JLR → HYD">BOM → JLR → HYD</option>
+  <option value="BLR → HBX → BOM → AMD → DEL">BLR → HBX → BOM → AMD → DEL</option>
+  <option value="CCU → RPR → HYD → BLR">CCU → RPR → HYD → BLR</option>
+  <option value="BOM → CCU → HYD">BOM → CCU → HYD</option>
+  <option value="BOM → JAI → DEL → HYD">BOM → JAI → DEL → HYD</option>
+  <option value="BOM → UDR → DEL → HYD">BOM → UDR → DEL → HYD</option>
+ </select>&emsp;
+<input type="text" id="Dep_Time" name="Dep_Time" value = "00:00" required="required" />&emsp;&emsp;&emsp;
+<input type="text" id="Duration" name="Duration" value = "00hr 00min" required="required" />&emsp;&emsp;&emsp;
+<select id="Total_Stops" name="Total_Stops">
+  <option value="non-stop">non-stop</option>
+  <option value="1 stop">1 stop</option>
+  <option value="2 stops">2 stops</option>
+  <option value="3 stops">3 stops</option>
+  <option value="4 stops">4 stops</option>
+</select>&emsp;&emsp;
+<select id="Additional_Info" name="Additional_Info">
+  <option value="No info">No info</option>
+  <option value="No check-in baggage included">No check-in baggage included</option>
+  <option value="In-flight meal not included">In-flight meal not included</option>
+  <option value="1 Long layover">1 Long layover</option>
+  <option value="Change airports">Change airports</option>
+  <option value="Business class">Business class</option>
+  <option value="Red-eye flight">Red-eye flight</option>
+  <option value="2 Long layover">2 Long layover</option>
+  <option value="1 Short layover">1 Short layover</option>
+</select>
+					 <br><br><br><br><br><br><br><br><br><br><br><br><br>
+					<p><button type="submit">Submit</button></p>
+			</form>
+			<br><br><br><br>
+<p style="color:lawnGreen;"><b>Flight Fare: </b><label style="color:Red;"><b>{{prediction_text}}</b></label></p>
+</div>
+</body>
+</html>
