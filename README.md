@@ -18,7 +18,7 @@ ________________________________________________________________________________
 # 🏽‍ Download the Model
 _________________________________________________________________________________________________________________________________________________________________
 
-• Download the Classification model file from following Drive Link
+• Download the Regression model file from following Drive Link
 
 • https://drive.google.com/drive/folders/1hUOGYjYbqEHoQqltuEBCsqFUyHenwXMG?usp=sharing
 
