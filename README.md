@@ -54,7 +54,7 @@ ________________________________________________________________________________
 
 • https://github.com/Diana-Laveena-DSouza/Flight-Fare-Prediction/blob/main/doc/Flightfare_HLD_V1.pdf
 
-• 
+• https://github.com/Diana-Laveena-DSouza/Flight-Fare-Prediction/blob/main/doc/FlightFare_DetailProject.pptx
 
 # Prediction
 _______________________________________________________________________________________________________________________________________________________________
