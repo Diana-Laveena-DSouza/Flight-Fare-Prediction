@@ -49,7 +49,11 @@ ________________________________________________________________________________
 
 • xgboost
 
-# 📖 Please Go through https://github.com/Diana-Laveena-DSouza/Flight-Fare-Prediction/blob/main/doc/Flightfare_HLD_V1.pdf for more info.
+# 📖 Please Go through following documents for more information.
+_______________________________________________________________________________________________________________________________________________________________
+
+• https://github.com/Diana-Laveena-DSouza/Flight-Fare-Prediction/blob/main/doc/Flightfare_HLD_V1.pdf 
+• 
 
 # Prediction
 _______________________________________________________________________________________________________________________________________________________________
