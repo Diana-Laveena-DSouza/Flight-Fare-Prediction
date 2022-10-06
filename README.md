@@ -20,7 +20,7 @@ ________________________________________________________________________________
 
 • Download the Regression model file from following Drive Link
 
-• https://drive.google.com/drive/folders/1hUOGYjYbqEHoQqltuEBCsqFUyHenwXMG?usp=sharing
+• https://drive.google.com/drive/folders/1ljzNbt29BX-cyt_RtwX_f0fzaYNQlbuq?usp=sharing
 
 # 🖥️ Installation
 _________________________________________________________________________________________________________________________________________________________________
